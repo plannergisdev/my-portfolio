@@ -1,0 +1,18 @@
+// Initialize map centered on Bangladesh
+// [Latitude, Longitude], Zoom Level (7 is usually perfect for BD)
+var map = L.map('map').setView([23.6850, 90.3563], 7);
+
+// Add a high-quality base layer
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+}).addTo(map);
+
+// Add the official FAO GAUL 2024 Level 2 WMS Layer
+// This layer contains the "Districts and equivalent"
+var gaulLayer = L.tileLayer.wms("https://data.apps.fao.org/map/gsrv/gsrv1/gaul/wms", {
+    layers: 'g2024_2023_2', 
+    format: 'image/png',
+    transparent: true,
+    version: '1.1.1',
+    attribution: "© FAO GAUL 2024"
+}).addTo(map);

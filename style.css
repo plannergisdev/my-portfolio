@@ -55,3 +55,19 @@ h1 {
     margin-top: 0;
     color: #58a6ff;
 }
+.skills {
+    margin-top: 30px;
+    text-align: left; /* Aligns the list to the left for better reading */
+    width: 80%;
+    max-width: 600px;
+}
+
+.skills ul {
+    list-style-type: "▹ "; /* Gives it a cool professional bullet point */
+    color: #c9d1d9;
+    line-height: 1.8;
+}
+
+.skills li {
+    font-size: 1.1rem;
+}

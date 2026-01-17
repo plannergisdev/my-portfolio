@@ -1,0 +1,1 @@
+Data Source: FAO. 2024. Global Administrative Unit Layers (GAUL).. Licence: Creative Commons Attribution 4.0 International (CC BY 4.0). Disclaimer: This portfolio project is a personal showcase of work performed for the FAO; it is not an official FAO publication.

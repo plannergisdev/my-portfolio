@@ -54,6 +54,43 @@
         body { margin: 0; padding: 0; }
     </style>
 </head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bangladesh Admin 2 Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; width: 100%; }
+        body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map centered on Bangladesh
+        var map = L.map('map').setView([23.685, 90.3563], 7);
+
+        // Add a background map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Load your Bangladesh data
+        fetch('bangladesh_admin2.json')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: function() { return { color: "#2c3e50", weight: 1, fillOpacity: 0.2 }; },
+                    onEachFeature: function(feature, layer) {
+                        // This adds a popup showing the District name
+                        layer.bindPopup("District: " + (feature.properties.ADM2_EN || "Unknown"));
+                    }
+                }).addTo(map);
+            });
+    </script>
+</body>
+</html>
 <body>
 
     <div id="map"></div>
